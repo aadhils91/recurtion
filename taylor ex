@@ -1,0 +1,32 @@
+#include<iostream>
+using namespace std;
+
+int pow(int m,int n)
+{
+    if(n==0)
+    return 1;
+    if(n%2==0)
+    return pow(m*m,n/2);
+    return m*pow(m*m,n/2);
+}
+
+int fact(int n)
+{
+    if(n==0)
+    return 1;
+    return fact(n-1)*n;
+}
+
+float taylor(int m,int n)
+{
+    if(n==1)
+    return 1;
+    return (float)pow(m,n)/fact(n)+taylor(m,n-1);
+}
+int main()
+{
+    int x,y;
+    cin>>x>>y;
+    cout<<taylor(x,y);
+    return 0;
+}
